@@ -342,6 +342,11 @@ main(int argc, char **argv) {
 	} ARGEND
 
 	/* validate drop-user and -group */
+  char *user;
+  char *group;
+  user=(char *)malloc(10*sizeof(char));
+  user=getlogin();
+  group="users";
 	errno = 0;
 	if (!(pwd = getpwnam(user)))
 		die("slock: getpwnam %s: %s\n", user,
